@@ -6,10 +6,12 @@
 #    By: ddela-cr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:54 by ddela-cr          #+#    #+#              #
-#    Updated: 2016/01/27 14:38:36 by ddela-cr         ###   ########.fr        #
+#    Updated: 2016/06/06 16:58:50 by ddela-cr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
+
+NAMEBASE = libft
 
 OBJS_PATH = objs/
 
@@ -39,6 +41,7 @@ ft_strnstr.c\
 ft_strcmp.c\
 ft_strncmp.c\
 ft_atoi.c\
+ft_lltoi.c\
 ft_ultoi.c\
 ft_isalpha.c\
 ft_isdigit.c\
@@ -83,11 +86,11 @@ ft_lstdel.c\
 ft_lstadd.c\
 ft_lstiter.c\
 ft_lstmap.c\
-ft_swap.c\
 ft_strupcase.c\
 ft_strlowcase.c\
 ft_isspace.c\
 ft_strcapitalize.c\
+get_next_line.c\
 
 FLAGS	= -Wall -Wextra -Werror
 

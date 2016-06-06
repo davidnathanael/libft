@@ -6,7 +6,7 @@
 /*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:28:54 by ddela-cr          #+#    #+#             */
-/*   Updated: 2016/01/27 14:41:02 by ddela-cr         ###   ########.fr       */
+/*   Updated: 2016/06/06 16:59:41 by ddela-cr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,26 @@
 # include <stdint.h>
 # include <wchar.h>
 
+# define GNL_BUFF_SIZE 1
+# define GNL_READ 1
+# define GNL_END 0
+# define GNL_ERROR -1
+
+typedef struct		s_gnl
+{
+	int				fd;
+	char			*overflow;
+	struct s_gnl	*next;
+}					t_gnl;
+
 typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
+int				get_next_line(int const fd, char **line);
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -51,6 +65,7 @@ char			*ft_strnstr(const char *s1, const char *s2, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
+long long		ft_lltoi(const char *str);
 unsigned long	ft_atoi_uns_long(const char *str);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -98,7 +113,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void(*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-void			ft_swap(int *a, int *b);
 char			*ft_strupcase(char *str);
 char			*ft_strlowcase(char *str);
 int				ft_isspace(int c);
